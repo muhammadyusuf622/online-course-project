@@ -57,5 +57,4 @@ Bu platforma onlayn o‘quv kurslari uchun mo‘ljallangan. Foydalanuvchilar pla
 - Ta’lim oladi (kurslarga yozilish, ko‘rish)
 - Izoh va fikr bildiradi
 - O‘z bio’si va profiliga ega bo‘ladi
-- 
 
