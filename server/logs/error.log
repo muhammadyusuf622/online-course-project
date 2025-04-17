@@ -1,0 +1,5 @@
+{"level":"error","message":"POST /api/user, - Users validation failed: username: Path `username` is required., email: Path `email` is required., password: Path `password` is required.","timestamp":"2025-04-16 23:33"}
+{"level":"error","message":"POST /api/user, - Users validation failed: username: Path `username` is required., email: Path `email` is required., password: Path `password` is required.","timestamp":"2025-04-17 11:43"}
+{"level":"error","message":"POST /api/user, - Users validation failed: username: Path `username` is required., email: Path `email` is required., password: Path `password` is required.","timestamp":"2025-04-17 11:44"}
+{"level":"error","message":"POST /api/user, - Users validation failed: username: Path `username` is required., email: Path `email` is required., password: Path `password` is required.","timestamp":"2025-04-17 11:44"}
+{"level":"error","message":"POST /api/createUser, - Users validation failed: password: Cast to string failed for value \"Promise { <pending> }\" (type Promise) at path \"password\"","timestamp":"2025-04-17 13:07"}

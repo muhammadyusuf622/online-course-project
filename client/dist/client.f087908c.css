@@ -1,0 +1,149 @@
+body {
+  background-image: url("register.eb527c12.avif");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.container {
+  position: absolute;
+  top: 6%;
+  left: 10%;
+}
+
+.box * {
+  letter-spacing: .5px;
+  font-family: Poppins, sans-serif;
+}
+
+.box {
+  color: #fff;
+  backdrop-filter: blur(7px);
+  border: 2px solid #fff;
+  border-radius: 5px;
+  width: 1300%;
+  max-width: 500px;
+  padding: 40px 0;
+  position: relative;
+  box-shadow: 0 0 40px #0a053099;
+}
+
+.span {
+  width: 240px;
+  margin: 0 auto;
+  font-size: 40px;
+  display: block;
+}
+
+input::placeholder {
+  color: #e5e5e5;
+}
+
+.name:focus {
+  border: none;
+  outline: none;
+}
+
+.name {
+  color: #8f8c8c;
+  cursor: pointer;
+  background-color: #ffffff12;
+  border: none;
+  border-radius: 5px;
+  width: 90%;
+  max-width: 600px;
+  height: 45px;
+  margin-top: 10px;
+  padding: 0 10px;
+  font-family: Poppins, sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+}
+
+.box1 {
+  margin: 25px 0 -4px;
+}
+
+.box1 label {
+  font-weight: 500;
+  font-size: 16px !important;
+}
+
+.but {
+  color: #fff;
+  cursor: pointer;
+  background-color: #1e88e5;
+  border: none;
+  border-radius: 5px;
+  width: 94%;
+  max-width: 650px;
+  height: 50px;
+  margin-top: 30px;
+  margin-bottom: 0;
+  font-family: Poppins, sans-serif;
+  font-size: 20px;
+  transition: all .3s;
+}
+
+.but:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 15px #0000004d;
+}
+
+.box3 {
+  margin-left: 5%;
+}
+
+.or {
+  color: #fff;
+  padding: 0 10px;
+  font-weight: bold;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.divider {
+  text-align: center;
+  width: 90%;
+  max-width: 500px;
+  margin: 30px auto;
+  position: relative;
+}
+
+.gmail-dev {
+  font-style: inherit;
+  margin-top: 30px;
+  font-size: 20px;
+}
+
+.gmail-dev a {
+  color: #0759a1;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+@media (width <= 768px) {
+  .box {
+    padding: 20px 0;
+  }
+
+  .name {
+    height: 45px;
+    font-size: 20px;
+  }
+
+  .but {
+    font-size: 18px;
+  }
+
+  .span {
+    font-size: 30px;
+  }
+
+  .shape {
+    width: 100px;
+    height: 100px;
+  }
+}
+/*# sourceMappingURL=client.f087908c.css.map */
