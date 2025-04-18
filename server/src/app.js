@@ -5,6 +5,7 @@ import bodyParser from "body-parser";
 import cookieParser from "cookie-parser"
 // import morgan from "morgan"
 import router from "./modules/index.js";
+import ErrorHandler from "./utils/ErrorHandler.utils.js";
 
 const app = express()
 
@@ -27,9 +28,11 @@ app.use(cors({
 app.use('/api',router);
 
 
+
+app.all("/*splat", (req, res, next) => {
+  throw new ErrorHandler(404, "Page Not Found")
+});
+
 app.use(errorMiddleware)
-
-
-
 
 export default app;

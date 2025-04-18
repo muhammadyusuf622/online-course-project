@@ -11,7 +11,7 @@
 }
 
 body {
-  background-image: url("/images/bacground.jpg");
+  background-image: url("../public/images/register.avif");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -41,8 +41,8 @@ form {
   position: absolute;
   transform: translate(-50%, -50%);
   top: 50%;
-  left: 50%;
-  border-radius: 10px;
+  left: 28%;
+  border-radius: 5px;
   backdrop-filter: blur(7px);
   border: 2px solid white;
   box-shadow: 0 0 40px rgba(10, 5, 48, 0.6);
@@ -91,7 +91,7 @@ input {
 button {
   margin-top: 70px;
   width: 100%;
-  background: linear-gradient(to right, rgb(64, 65, 66), rgb(38, 7, 117));
+  background-color: #1E88E5;
   color: white;
   padding: 12px 0;
   font-size: 16px;
@@ -111,7 +111,7 @@ button {
 
 .gmail-dev a {
   text-decoration: none;
-  color: rgb(120, 66, 255);
+  color: #0759a1;
   cursor: pointer;
 }
 
@@ -122,6 +122,19 @@ button {
   font-weight: bold;
   text-align: center;
   margin-bottom: 0px;
+}
+
+.forgotText{
+  text-align: center;
+}
+
+.goLogin{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 40px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
 }
 
 /* Responsiv dizayn */

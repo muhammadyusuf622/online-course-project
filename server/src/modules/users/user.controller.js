@@ -24,10 +24,42 @@ class UserController {
     }
   }
 
-  getUser = async (req, res, next) => {
+  userLogin = async (req,res, next) => {
     try {
-      
-      res.send("salom");
+      const {email, password} = req.body;
+
+      const data = await this.#_service.userLogin(email, password);
+
+      if(data.message == "ok"){
+        createTokenAndSetcookie(data.data, res)
+      }
+
+      res.send(data);
+
+    } catch (error) {
+      next(error)
+    }
+  }
+
+  forgotPassword = async (req, res, next) => {
+    try {
+      const {email} = req.body;
+
+      const data = await this.#_service.forgotPassword(email);
+
+      res.send(data)
+    } catch (error) {
+      next(error)
+    }
+  }
+
+  createNewPassword = async (req, res, next) => {
+    try {
+      const {email, password} = req.body
+
+      const data = await this.#_service.createNewPassword(email, password);
+
+      res.send(data)
     } catch (error) {
       next(error)
     }

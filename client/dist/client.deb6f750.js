@@ -670,6 +670,9 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 var _axiosJs = require("./axios.js");
 var _axiosJsDefault = parcelHelpers.interopDefault(_axiosJs);
+(0, _axiosJsDefault.default).post("/user/checkToken").then((res)=>{
+    if (res.data.message == "ok") return window.location.href = "/pages/home.html";
+}).catch((err)=>console.log(err));
 const registerForm = document.querySelector('#registerForm');
 registerForm.addEventListener('submit', (e)=>{
     e.preventDefault();
@@ -680,9 +683,8 @@ registerForm.addEventListener('submit', (e)=>{
         user[input.name] = input.value;
     });
     if (user.password !== user.confirm_password) return alert("The passwords are not the same.");
-    console.log(user);
-    (0, _axiosJsDefault.default).post("/createUser", user).then((response)=>{
-        console.log(response.data);
+    (0, _axiosJsDefault.default).post("/user/register", user).then((response)=>{
+        if (response.data.message == "ok") return window.location.href = "/pages/home.html";
     }).catch((error)=>{
         console.error(error);
     });

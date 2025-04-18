@@ -10,7 +10,7 @@ const errorMiddleware = (err, req, res, next) => {
   console.log(`[ERROR] ${statusCode}, - ${message}`);
 
   logger.error(`${req.method} ${req.url}, - ${message}`);
-  res.status(statusCode).json({
+  res.json({
     message: message
   });
 };

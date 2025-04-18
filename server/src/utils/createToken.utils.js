@@ -26,15 +26,15 @@ const createTokenAndSetcookie = (user, res) => {
 
   res.cookie("accessToken", accessToken, {
     httpOnly: true,
-    // secure: process.env.NODE_ENV === "production",
-    // sameSite: "strict",
+    secure: process.env.NODE_ENV === "production",
+    sameSite: "strict",
     maxAge: accessMaxAge
   });
 
   res.cookie("refreshToken", refreshToken, {
     httpOnly: true,
-    // secure: process.env.NODE_ENV === "production",
-    // sameSite: "strict",
+    secure: process.env.NODE_ENV === "production",
+    sameSite: "strict",
     maxAge: refreshMaxAge
   });
 };

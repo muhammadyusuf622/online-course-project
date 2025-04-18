@@ -1,5 +1,13 @@
 import customAxios from "./axios.js";
 
+customAxios.post("/user/checkToken")
+.then(res => {
+  if(res.data.message == "ok"){
+    return window.location.href = "/pages/home.html";
+  }
+})
+.catch(err => console.log(err));
+
 const registerForm = document.querySelector('#registerForm');
 
 registerForm.addEventListener('submit', (e) => {
@@ -22,11 +30,11 @@ registerForm.addEventListener('submit', (e) => {
     return alert("The passwords are not the same.");
   }
 
-  console.log(user);
-
-  customAxios.post("/createUser", user)
+  customAxios.post("/user/register", user)
   .then(response => {
-    console.log(response.data);
+    if(response.data.message == "ok"){
+      return window.location.href = "/pages/home.html";
+    }
   })
   .catch(error => {
     console.error(error);
