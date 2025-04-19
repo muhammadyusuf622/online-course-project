@@ -1,3 +1,4 @@
+import PORT from "../../config/app.config.js";
 import sendMail from "../../utils/mail.utils.js";
 import userModel from "./user.model.js";
 import { compare, hash } from "bcrypt";
@@ -112,6 +113,55 @@ class UserService {
     const hashPassword = await hash(password, 10);
     await this.userModel.updateOne({email}, {$set: { password: hashPassword }});
 
+
+    return {
+      message: "ok"
+    }
+  }
+
+  profilImg = async (userId, imageUrl) => {
+    
+    const dataAll = await this.userModel.findByIdAndUpdate(userId,{ profil_image: imageUrl}, { new: true });
+
+    const data = dataAll.toObject();
+    if (!data) {
+      return { message: "User not found" };
+    }
+
+    data.profil_image = `http://localhost:${PORT}${data.profil_image.split("server")[1]}`;
+
+    return{
+      message: "ok",
+    }
+  }
+
+  getByIdUser = async (userId) => {
+
+    const dataAll = await this.userModel.findById(userId);
+
+    if(!dataAll){
+      return { message: "userId not found" };
+    }
+
+    const data = dataAll.toObject();
+
+
+    if(!data){
+      return { message: "userId not found" };
+    }
+
+    data.createdAt = data.createdAt.toISOString().split("T")[0];
+    data.profil_image = `http://localhost:${PORT}${data.profil_image.split("server")[1]}`;
+
+    return {
+      message: "ok",
+      data: data
+    }
+  }
+
+  updateUserBio = async (userId, newBio) => {
+
+    await this.userModel.findByIdAndUpdate( userId, {bio: newBio}, { new: true });
 
     return {
       message: "ok"

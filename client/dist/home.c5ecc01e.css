@@ -192,6 +192,22 @@ footer a {
   text-decoration: none;
 }
 
+.profil_img img {
+  cursor: pointer;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  transition: all .3s;
+  position: absolute;
+  top: 10px;
+  right: 50px;
+}
+
+.profil_img img:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 20px #0000004d;
+}
+
 @media (width <= 768px) {
   .hero h1 {
     font-size: 2rem;

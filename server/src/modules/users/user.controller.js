@@ -1,4 +1,5 @@
 import createTokenAndSetcookie from "../../utils/createToken.utils.js";
+import ErrorHandler from "../../utils/ErrorHandler.utils.js";
 import userService from "./user.service.js";
 
 
@@ -60,6 +61,58 @@ class UserController {
       const data = await this.#_service.createNewPassword(email, password);
 
       res.send(data)
+    } catch (error) {
+      next(error)
+    }
+  }
+
+  profilImg = async (req, res, next) => {
+    try {
+      const { file } = req;
+      const  userId  = req.user?.id;
+  
+      if (!file) {
+        return res.status(400).json({ message: "No image uploaded" });
+      }
+
+      const imageUrl = file.path;
+  
+      const data = await this.#_service.profilImg(userId, imageUrl);
+  
+      res.send(data);
+  
+    } catch (error) {
+      next(error);
+    }
+  }
+
+  getByidUSer = async (req, res, next) => {
+    try {
+      const  userId  = req.user?.id;
+
+      console.log(req.user)
+
+      const data = await this.#_service.getByIdUser(userId);
+
+      res.send(data);
+
+    } catch (error) {
+      next(error)
+    }
+  }
+
+  updateUserBio = async (req, res, next) => {
+    try {
+      const  userId  = req.user?.id;
+      const { bio } = req.body;
+
+      if(!bio.trim()){
+        throw new ErrorHandler(404, "Bio Not Found");
+      }
+
+      const data = await this.#_service.updateUserBio(userId, bio);
+
+      res.send(data);
     } catch (error) {
       next(error)
     }

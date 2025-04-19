@@ -10,13 +10,15 @@ class CategoryController {
 
   getAllCategory = async (req, res, next) => {
     try {
-      const data = await this.#_service.getAllcategory();
+
+      const data = await this.#_service.getAllcategory(req.user);
 
       res.send(data)
     } catch (error) {
       next(error)
     }
   }
+
 }
 
 export default new CategoryController();

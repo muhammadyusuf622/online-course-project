@@ -1,0 +1,424 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background-color: #f4f4f4;
+  line-height: 1.6;
+}
+
+header {
+  color: #fff;
+  z-index: 1000;
+  background-color: #0052cc;
+  width: 100%;
+  padding: 1rem 2rem;
+  position: fixed;
+  top: 0;
+}
+
+.nav-container {
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+}
+
+nav ul li {
+  margin-left: 2rem;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  transition: color .3s;
+}
+
+nav ul li a:hover {
+  color: gold;
+}
+
+.profile-container {
+  max-width: 1200px;
+  margin: 100px auto 3rem;
+  padding: 0 2rem;
+}
+
+.profile-header {
+  background-color: #fff;
+  border-radius: 8px;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  padding: 2rem;
+  display: flex;
+  box-shadow: 0 2px 5px #0000001a;
+}
+
+.profile-info h1 {
+  color: #333;
+  margin-bottom: .5rem;
+  font-size: 2rem;
+}
+
+.profile-info p {
+  color: #666;
+  margin-bottom: .5rem;
+}
+
+.edit-profile-btn {
+  color: #fff;
+  cursor: pointer;
+  background-color: #0052cc;
+  border-radius: 5px;
+  margin-top: 1rem;
+  padding: .5rem 1rem;
+  text-decoration: none;
+  transition: background-color .3s;
+  display: inline-block;
+}
+
+.edit-profile-btn:hover {
+  background-color: #003d99;
+}
+
+.tabs {
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  display: flex;
+}
+
+.tab {
+  cursor: pointer;
+  background-color: #ddd;
+  border-radius: 5px;
+  padding: .8rem 1.5rem;
+  font-weight: bold;
+  transition: background-color .3s;
+}
+
+.tab.active {
+  color: #fff;
+  background-color: #0052cc;
+}
+
+.tab-content {
+  color: #0052cc;
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 2rem;
+  font-size: 22px;
+  display: none;
+  box-shadow: 0 2px 5px #0000001a;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+.course-list, .comment-list {
+  gap: 1rem;
+  display: grid;
+}
+
+.course-item, .comment-item {
+  background-color: #f8f9fa;
+  border-radius: 5px;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  display: flex;
+}
+
+.course-item h3, .comment-item h3 {
+  color: #333;
+  margin-bottom: .5rem;
+}
+
+.course-item p, .comment-item p {
+  color: #666;
+}
+
+.stats {
+  color: #0052cc;
+  font-size: .9rem;
+}
+
+footer {
+  color: #fff;
+  text-align: center;
+  background-color: #333;
+  margin-top: 2rem;
+  padding: 2rem;
+}
+
+footer a {
+  color: gold;
+  text-decoration: none;
+}
+
+.fatherImg {
+  width: 200px;
+  height: 220px;
+}
+
+.creayeImg {
+  border: 1px solid;
+  border-radius: 10px;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height: 200px;
+  transition: all .3s;
+  display: flex;
+  position: relative;
+  overflow: hidden;
+}
+
+.creayeImg:hover {
+  background-color: #f0f0f0;
+}
+
+.creayeImg img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.creayeImg input {
+  display: none;
+}
+
+.creayeImg i {
+  cursor: pointer;
+  z-index: 5;
+  font-size: 45px;
+  transition: all .3s;
+  position: absolute;
+  top: 40%;
+  left: 40%;
+}
+
+.creayeImg label {
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.createCourses {
+  justify-content: space-evenly;
+  margin-top: 50px;
+  display: flex;
+}
+
+.courseTitle input {
+  border-radius: 15px;
+  width: 500px;
+  height: 40px;
+  padding: 3px 20px;
+  font-size: 20px;
+  display: block;
+}
+
+.courseTitle label {
+  display: block;
+}
+
+.courseTitle .description {
+  margin-top: 20px;
+}
+
+.courseTitle textarea {
+  resize: none;
+  border: 2px solid;
+  border-radius: 15px;
+  width: 500px;
+  height: 70px;
+  padding: 5px 10px;
+  font-size: 20px;
+}
+
+.courseOrders {
+  justify-content: space-evenly;
+  margin-top: 50px;
+  display: flex;
+}
+
+.language {
+  border-radius: 5px;
+  width: 250px;
+  height: 35px;
+  padding-left: 10px;
+  font-size: 20px;
+}
+
+.categoryBtn {
+  justify-content: center;
+  align-items: center;
+  margin-top: 80px;
+  margin-bottom: 50px;
+  display: flex;
+}
+
+.categoryBtn button {
+  color: #fff;
+  background-color: #347eed;
+  border: none;
+  border-radius: 10px;
+  width: 700px;
+  height: 40px;
+  font-size: 20px;
+  transition: all .3s;
+}
+
+.categoryBtn button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 20px #0000004d;
+}
+
+.profilImageDiv {
+  position: relative;
+}
+
+.profilImageDiv label {
+  color: #347eed;
+  cursor: pointer;
+  font-size: 25px;
+  position: absolute;
+  bottom: 6px;
+  right: 14px;
+}
+
+.profile-image {
+  object-fit: cover;
+  border: 3px solid #0052cc;
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+}
+
+.boxBio {
+  background-color: #fff;
+  border: 1px solid;
+  border-radius: 10px;
+  width: 300px;
+  height: 320px;
+  padding: 0 20px;
+  display: none;
+  position: absolute;
+  top: 20%;
+  left: 40%;
+  box-shadow: 0 5px 30px #0000004d;
+}
+
+.boxBio h4 {
+  text-align: center;
+  color: #347eed;
+  margin-top: 10px;
+  font-size: 20px;
+}
+
+.boxBio textarea {
+  resize: none;
+  color: #347eed;
+  border-radius: 20px;
+  width: 250px;
+  height: 120px;
+  margin-top: 30px;
+  padding: 10px;
+  font-size: 15px;
+}
+
+.boxBio button {
+  color: #fff;
+  background-color: #347eed;
+  border: none;
+  border-radius: 10px;
+  width: 250px;
+  height: 30px;
+  margin-top: 20px;
+  transition: all .3s;
+}
+
+.boxBio button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 5px 30px #0000004d;
+}
+
+.course-grid {
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 50px;
+  display: grid;
+}
+
+.course-card {
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  width: 300px;
+  transition: transform .3s;
+  overflow: hidden;
+}
+
+.course-card-content {
+  padding: 1.5rem;
+}
+
+.course-card img {
+  object-fit: cover;
+  width: 100%;
+  height: 150px;
+}
+
+.course-card:hover {
+  transform: translateY(-5px);
+}
+
+.course-card h3 {
+  margin-bottom: .5rem;
+}
+
+.course-card p {
+  color: #666;
+  font-size: 1rem;
+}
+
+@media (width <= 768px) {
+  .profile-header {
+    text-align: center;
+    flex-direction: column;
+  }
+
+  .profile-image {
+    width: 100px;
+    height: 100px;
+  }
+
+  .tabs {
+    flex-direction: column;
+  }
+
+  .course-item {
+    text-align: center;
+    flex-direction: column;
+  }
+}
+/*# sourceMappingURL=profil.184f854e.css.map */

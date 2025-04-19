@@ -1,3 +1,5 @@
+import PORT from "../../config/app.config.js";
+import userModel from "../users/user.model.js";
 import categoryModel from "./category.model.js";
 
 
@@ -8,16 +10,19 @@ class CategoryService {
     this.#_seedCasegory();
   }
 
-  getAllcategory = async () => {
+  getAllcategory = async (user) => {
 
     const allCategory = await this.#_categoryModel.find();
+    const userData = await userModel.findById(user.id)
+    const UserInfo = userData.toObject();
+    UserInfo.profil_image = `http://localhost:${PORT}${UserInfo.profil_image.split("server")[1]}`;
 
     return {
       message: "ok",
-      data: allCategory
+      data: allCategory,
+      user: UserInfo
     }
   }
-
 
 
   #_seedCasegory = async () => {

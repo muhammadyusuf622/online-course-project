@@ -8,19 +8,19 @@ export const authMiddleware = (req, res, next) => {
 
     if (accessToken && refreshToken) {
       try {
-        jwt.verify(accessToken, dotenvConfig.ACCESSTOKEN_SECRET_KEY);
+        const decoded = jwt.verify(accessToken, dotenvConfig.ACCESSTOKEN_SECRET_KEY);
+        req.user = decoded;
         return next()
       } catch (err) {
         console.log("Access token yaroqsiz ❌");
       }
     }
-
         if (refreshToken && !accessToken){
           try {
             const decoded = jwt.verify(refreshToken, dotenvConfig.REFRESHTOKEN_SECRET_KEY);
     
             const newAccessToken = jwt.sign(
-              { id: decoded.Id, username: decoded.username, role: decoded.role },
+              { id: decoded.id, username: decoded.username, role: decoded.role },
               dotenvConfig.ACCESSTOKEN_SECRET_KEY,
               { expiresIn: dotenvConfig.ACCESSTOKEN_SECRET_TIME }
             );
@@ -47,7 +47,8 @@ export const authMiddleware = (req, res, next) => {
               sameSite: "strict",
               maxAge: refreshMaxAge
             });
-    
+            
+            req.user = decoded;
             return next()
           } catch (error) {
             return res.send({

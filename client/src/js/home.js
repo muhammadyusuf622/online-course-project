@@ -24,6 +24,11 @@ import customAxios from "./axios";
 
 
 const BlogCourses = document.querySelector(".course-grid");
+const liProfil_img = document.querySelector(".profil_img");
+
+liProfil_img.addEventListener('click', () => {
+  return window.location.href = "/pages/profil.html";
+})
 
 function createCategory(){
 
@@ -32,6 +37,9 @@ function createCategory(){
     const data = res.data.data
 
     if(res.data.message == "ok"){
+
+      liProfil_img.innerHTML = `<img src="${res.data.user.profil_image}" alt="${res.data.user.username}">`
+
       data.forEach(category => {
 
         const div = document.createElement("div");

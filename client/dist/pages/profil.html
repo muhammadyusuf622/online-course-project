@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/profil.184f854e.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <title>Foydalanuvchi Profili</title>
+</head>
+<body>
+    <header>
+        <div class="nav-container">
+            <div class="logo">Tamerlane Teach</div>
+            <nav>
+                <ul>
+                    <li><a href="/pages/home.html">Home</a></li>
+                    <li><a href="#courses">Courses</a></li>
+                    <li><a href="#profile">About Us</a></li>
+                    <li><a href="#contact">Communication</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="profile-container">
+        <div class="profile-header">
+
+          <div class="profilImageDiv">
+            <img src="https://images.unsplash.com/photo-1511367461989-f85a21fda167" alt="Profile Image" class="profile-image" id="profileImage">
+            <label for="profilMedia"><i class="fa-solid fa-camera"></i></label>
+            <input type="file" id="profilMedia" name="profilMedia" accept="image/*" hidden="">
+          </div>
+          
+
+            <div class="profile-info">
+                <h1 id="username"></h1>
+                <p id="email"></p>
+                <p>Bio: <span id="bio"></span></p>
+                <p id="created_at"></p>
+                <div class="edit-profile-btn">Edit Profile</div>
+                <div class="boxBio">
+                  <form id="formUserBio">
+                    <h4>Enter Your Bio</h4>
+                    <textarea name="userBio" id="textBio"></textarea>
+                    <button type="submit" class="btnUserBio">Submit</button>
+                  </form>  
+                </div>
+            </div>
+        </div>
+
+        <div class="tabs">
+            <div class="tab active" data-tab="enrollments">Mening Kurslarim</div>
+            <div class="tab" data-tab="created-courses">Yaratgan Kurslarim</div>
+            <div class="tab" data-tab="likes">Create a course</div>
+            <div class="tab" data-tab="comments">Izohlar</div>
+        </div>
+
+        <div class="tab-content active" id="enrollments">
+            <h2>Mening Kurslarim</h2>
+            <div class="course-list" id="enrollment-list">
+            </div>
+        </div>
+
+        <div class="tab-content" id="created-courses">
+            <h2>Courses I Created</h2>
+            <div class="course-grid">
+              
+              <div class="course-card">
+                <img src="https://thumbs.dreamstime.com/b/white-humanoid-robot-examines-programming-code-computer-screen-set-against-deep-blue-backdrop-highlighting-futuristic-342858644.jpg" alt="">
+                <div class="course-card-content">
+                  <h3>Hello</h3>
+                  <p>Lorem natus cum praesentium. Rerum distinctio illum, cupiditate praesentium aliquid debitis?</p>
+                  <p><b>Level:</b><span>Beginner</span></p>
+                  <p> <b>Language:</b><span>Inglish</span></p>
+                </div>
+              </div>
+
+            </div>
+        </div>
+
+        <div class="tab-content" id="likes">
+            <h2 style="text-align: center">Create Your Own Course</h2>
+            <div class="course-list" id="like-list">
+
+              <form class="formCreateCourse">
+              <div class="createCourses"> 
+              
+                <div class="fatherImg">
+                  <p>Your Course Picture</p>
+                  <div class="creayeImg" id="previewDiv">
+                    <img>
+                    <label id="imgIconLabel" for="media"><i class="fa-solid fa-image"></i></label>
+                    <input type="file" id="media" name="media" accept="image/*">
+                  </div>
+                </div>
+
+                <div class="courseTitle"> 
+                  <label for="title">Course Title</label>
+                  <input id="courseTitleInput" type="text" placeholder="Enter Title" required="">
+
+                  <label class="description" for="description">Course description</label>
+                  <textarea name="description" id="description" required=""></textarea>
+                </div>
+
+              </div>
+
+              <div class="courseOrders">
+                
+                <select id="language" class="language" required="">
+                  <option value="">Course Language</option>
+                  <option value="Uzbek">Uzbek</option>
+                  <option value="english">English</option>
+                  <option value="mandarin">Mandarin Chinese</option>
+                  <option value="hindi">Hindi</option>
+                  <option value="spanish">Spanish</option>
+                  <option value="french">French</option>
+                  <option value="arabic">Arabic</option>
+                  <option value="bengali">Bengali</option>
+                  <option value="russian">Russian</option>
+                  <option value="portuguese">Portuguese</option>
+                  <option value="urdu">Urdu</option>
+                  <option value="indonesian">Indonesian</option>
+                  <option value="german">German</option>
+                  <option value="japanese">Japanese</option>
+                  <option value="swahili">Swahili</option>
+                  <option value="marathi">Marathi</option>
+                  <option value="telugu">Telugu</option>
+                  <option value="turkish">Turkish</option>
+                  <option value="korean">Korean</option>
+                  <option value="tamil">Tamil</option>
+                  <option value="vietnamese">Vietnamese</option>
+                  <option value="hausa">Hausa</option>
+                  <option value="javanese">Javanese</option>
+                  <option value="italian">Italian</option>
+                  <option value="egyptian_arabic">Egyptian Arabic</option>
+                  <option value="thai">Thai</option>
+                  <option value="gujarati">Gujarati</option>
+                  <option value="persian">Persian (Farsi)</option>
+                  <option value="polish">Polish</option>
+                  <option value="ukrainian">Ukrainian</option>
+                  <option value="malayalam">Malayalam</option>
+                  <option value="sundanese">Sundanese</option>
+                  <option value="yoruba">Yoruba</option>
+                  <option value="burmese">Burmese</option>
+                  <option value="sindhi">Sindhi</option>
+                  <option value="romanian">Romanian</option>
+                  <option value="amharic">Amharic</option>
+                  <option value="azerbaijani">Azerbaijani</option>
+                  <option value="oriya">Oriya (Odia)</option>
+                  <option value="dutch">Dutch</option>
+                  <option value="serbian">Serbian</option>
+                  <option value="malay">Malay</option>
+                  <option value="czech">Czech</option>
+                  <option value="greek">Greek</option>
+                  <option value="chhattisgarhi">Chhattisgarhi</option>
+                  <option value="belarusian">Belarusian</option>
+                  <option value="hungarian">Hungarian</option>
+                  <option value="kazakh">Kazakh</option>
+                  <option value="kinyarwanda">Kinyarwanda</option>
+                  <option value="hebrew">Hebrew</option>
+                  <option value="zulu">Zulu</option>
+                  <option value="madurese">Madurese</option>
+                  <option value="sinhalese">Sinhalese</option>
+                  <option value="slovak">Slovak</option>
+                  <option value="tagalog">Tagalog</option>
+                  <option value="nepali">Nepali</option>
+                  <option value="mongolian">Mongolian</option>
+                  <option value="kurdish">Kurdish</option>
+                  <option value="croatian">Croatian</option>
+                  <option value="armenian">Armenian</option>
+                  <option value="tatar">Tatar</option>
+                  <option value="albanian">Albanian</option>
+                  <option value="bulgarian">Bulgarian</option>
+                  <option value="danish">Danish</option>
+                  <option value="finnish">Finnish</option>
+                  <option value="norwegian">Norwegian</option>
+                  <option value="slovenian">Slovenian</option>
+                  <option value="estonian">Estonian</option>
+                  <option value="latvian">Latvian</option>
+                  <option value="lithuanian">Lithuanian</option>
+                  <option value="georgian">Georgian</option>
+                  <option value="irish">Irish</option>
+                  <option value="welsh">Welsh</option>
+                  <option value="basque">Basque</option>
+                  <option value="luxembourgish">Luxembourgish</option>
+                  <option value="maori">Maori</option>
+                  <option value="greenlandic">Greenlandic</option>
+                  <option value="esperanto">Esperanto</option>
+                  <option value="pashto">Pashto</option>
+                  <option value="lao">Lao</option>
+                  <option value="tibetan">Tibetan</option>
+                  <option value="somali">Somali</option>
+                  <option value="malagasy">Malagasy</option>
+                  <option value="catalan">Catalan</option>
+                  <option value="galician">Galician</option>
+                  <option value="bashkir">Bashkir</option>
+                  <option value="macedonian">Macedonian</option>
+                  <option value="samoan">Samoan</option>
+                  <option value="mongolian_buryat">Mongolian Buryat</option>
+                  <option value="friulian">Friulian</option>
+                  <option value="tahitian">Tahitian</option>
+                  <option value="tongan">Tongan</option>
+                  <option value="nauruan">Nauruan</option>
+                  <option value="marshallese">Marshallese</option>
+                  <option value="palauan">Palauan</option>
+                </select>
+                
+                <select id="course_Level" class="language" required="">
+                  <option value="">Course Level</option>
+                  <option value="Beginner">Beginner</option>
+                  <option value="Intermediate">Intermediate</option>
+                  <option value="Advanced">Advanced</option>
+                  <option value="All Levels">All Levels</option>
+                </select>
+
+                <select id="select_Category" class="language" required="">
+                  <option value="">Select a Category</option>
+                  <option value="Programming">Programming</option>
+                  <option value="Business">Business</option>
+                  <option value="Trading">Trading</option>
+                  <option value="Doctor">Doctor</option>
+                  <option value="Sport">Sport</option>
+                  <option value="Cook">Cook</option>
+                  <option value="Builder">Builder</option>
+                  <option value="Musician">Musician</option>
+                  <option value="Designer">Designer</option>
+                  <option value="Architect">Architect</option>
+                  <option value="Driver">Driver</option>
+                  <option value="Sewing">Sewing</option>
+                </select>
+                
+              </div>
+
+              <div class="categoryBtn">
+                <button type="submit">Submit</button>
+              </div>
+
+            </form></div>
+            
+        </div>
+
+        <div class="tab-content" id="comments">
+            <h2>Izohlar</h2>
+            <div class="comment-list" id="comment-list">
+              
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2025 E-Learning Platformasi. Barcha huquqlar himoyalangan.</p>
+        <p><a href="#privacy">Maxfiylik siyosati</a> | <a href="#terms">Foydalanish shartlari</a></p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script type="module" src="/profil.e1919ba4.js"></script>
+</body>
+</html>

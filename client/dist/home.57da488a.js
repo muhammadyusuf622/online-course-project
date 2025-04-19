@@ -686,20 +686,26 @@ window.addEventListener('scroll', ()=>{
     else header.style.backgroundColor = '#0052cc';
 });
 const BlogCourses = document.querySelector(".course-grid");
+const liProfil_img = document.querySelector(".profil_img");
+liProfil_img.addEventListener('click', ()=>{
+    return window.location.href = "/pages/profil.html";
+});
 function createCategory() {
     (0, _axiosDefault.default).get("/category/getAllCategory").then((res)=>{
         const data = res.data.data;
-        if (res.data.message == "ok") data.forEach((category)=>{
-            const div = document.createElement("div");
-            div.classList.add('course-card');
-            div.innerHTML = `<img src="${category.imageUrl}" alt="${category.name}">`;
-            const div2 = document.createElement("div");
-            div2.classList.add("course-card-content");
-            div2.innerHTML = `<h3>${category.name}</h3>`;
-            div.appendChild(div2);
-            BlogCourses.appendChild(div);
-        });
-        else return window.location.href = "/pages/login.html";
+        if (res.data.message == "ok") {
+            liProfil_img.innerHTML = `<img src="${res.data.user.profil_image}" alt="${res.data.user.username}">`;
+            data.forEach((category)=>{
+                const div = document.createElement("div");
+                div.classList.add('course-card');
+                div.innerHTML = `<img src="${category.imageUrl}" alt="${category.name}">`;
+                const div2 = document.createElement("div");
+                div2.classList.add("course-card-content");
+                div2.innerHTML = `<h3>${category.name}</h3>`;
+                div.appendChild(div2);
+                BlogCourses.appendChild(div);
+            });
+        } else return window.location.href = "/pages/login.html";
     }).catch((err)=>console.log(err));
 }
 createCategory();
