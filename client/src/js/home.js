@@ -21,10 +21,10 @@ import customAxios from "./axios";
           }
       });
 
-
-
+const courseGrid2 = document.querySelector(".course-grid2");
 const BlogCourses = document.querySelector(".course-grid");
 const liProfil_img = document.querySelector(".profil_img");
+const goBackBtn2 = document.querySelector(".go-back_Btn2");
 
 liProfil_img.addEventListener('click', () => {
   return window.location.href = "/pages/profil.html";
@@ -32,7 +32,8 @@ liProfil_img.addEventListener('click', () => {
 
 function createCategory(){
 
-  document.querySelector(".go-back_Btn").style.display = "none"
+  BlogCourses.innerHTML = ``;
+  
 
   customAxios.get("/category/getAllCategory")
   .then(res => {
@@ -66,14 +67,17 @@ function createCategory(){
 createCategory()
 
 
-const courseGrid = document.querySelector(".course-grid")
 
 
 function defaultCreateCourse( data ){
 
   document.querySelector(".go-back_Btn").style.display = "block"
 
-  courseGrid.innerHTML = ``;
+  if(BlogCourses.style.display != "none"){
+      BlogCourses.style.display = "none";
+      courseGrid2.style.display = "grid"
+  }
+  courseGrid2.innerHTML = ``;
 
     data.forEach(course => {
         const div = document.createElement("div");
@@ -96,18 +100,19 @@ function defaultCreateCourse( data ){
         div2.appendChild(p2)
         div2.appendChild(p3)
         div.appendChild(div2);
-        courseGrid.appendChild(div)
+        courseGrid2.appendChild(div)
   });
 }
 
 
 
-courseGrid.addEventListener("click", function(e) {
+BlogCourses.addEventListener("click", function(e) {
   const courseCard = e.target.closest(".course-card");
   if (courseCard) {
     const h3 = courseCard.querySelector("h3");
     const courseTitle = h3.textContent;
     console.log(courseTitle)
+    localStorage.setItem("title", JSON.stringify({title: courseTitle}));
 
     customAxios.post("/course/getCourseByCategory", {title: courseTitle})
     .then(res => {
@@ -116,15 +121,138 @@ courseGrid.addEventListener("click", function(e) {
       } else {
         console.log(res.data.message);
       }
-      
     })
     .catch(err => console.log(err));
   }
 });
 
+
+
 const goBackBtn = document.querySelector(".go-back_Btn");
 
 goBackBtn.addEventListener('click', () => {
+  courseGrid2.style.display = "none";
+  BlogCourses.style.display = "grid";
+  goBackBtn.style.display = "none";
+  createCategory();
+})
 
-  createCategory()
+
+
+async function getLesson (data) {
+
+  document.querySelector(".go-back_Btn2").style.display = "block"
+
+  courseGrid2.innerHTML = ``;
+  data.forEach(lesson => {
+    const div = document.createElement("div");
+    div.classList.add("course-card");
+  
+    // Video yoki iframe
+    if (lesson.video_url.startsWith("https://www.youtube.com")) {
+      const iframe = document.createElement("iframe");
+      iframe.src = lesson.video_url.replace("watch?v=", "embed/");
+      iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
+      iframe.allowFullscreen = true;
+      iframe.style.width = "100%";
+      iframe.style.height = "250px";
+      iframe.style.borderRadius = "10px";
+      iframe.style.border = "none";
+      div.appendChild(iframe);
+    } else {
+      const video = document.createElement("video");
+      video.src = lesson.video_url;
+      video.muted = true;
+      video.controls = false;
+      video.style.width = "100%";
+      video.style.borderRadius = "10px";
+  
+      video.addEventListener("mouseenter", () => {
+        video.muted = false;
+        video.play();
+      });
+  
+      video.addEventListener("mouseleave", () => {
+        video.muted = true;
+        video.pause();
+        video.currentTime = 0;
+      });
+  
+      video.addEventListener("click", () => {
+        if (video.requestFullscreen) {
+          video.requestFullscreen();
+        } else if (video.webkitRequestFullscreen) {
+          video.webkitRequestFullscreen();
+        } else if (video.msRequestFullscreen) {
+          video.msRequestFullscreen();
+        }
+      });
+  
+      div.appendChild(video);
+    }
+  
+    // Text qismlari
+    const div2 = document.createElement("div");
+    div2.classList.add("course-card-content");
+  
+    const h3 = document.createElement("h3");
+    h3.textContent = lesson.title;
+  
+    const p1 = document.createElement("p");
+    p1.textContent = lesson.description;
+  
+    const p2 = document.createElement("p");
+    p2.innerHTML = `<b>Lesson Number:</b> <span>${lesson.order_number}</span> `;
+  
+    const p3 = document.createElement("p");
+    p3.innerHTML = `<b>Duration:</b> <span>${lesson.duration}</span>`;
+  
+    div2.appendChild(h3);
+    div2.appendChild(p1);
+    div2.appendChild(p2);
+    div2.appendChild(p3);
+  
+    div.appendChild(div2);
+    courseGrid2.appendChild(div);
+  });
+  
+}
+
+
+courseGrid2.addEventListener("click", function(e) {
+  const courseCard = e.target.closest(".course-card");
+  if (courseCard) {
+    const h3 = courseCard.querySelector("h3");
+    const courseTitle = h3.textContent;
+    console.log(courseTitle)
+    goBackBtn.style.display = "none";
+
+    customAxios.post("/lesson/getLessonByTitle", {title: courseTitle})
+    .then(res => {
+      if(res.data.message == 'ok'){
+        getLesson(res.data.data)
+      } else {
+        console.log(res.data.message);
+      }
+    })
+    .catch(err => console.log(err));
+  }
+});
+
+
+
+goBackBtn2.addEventListener('click', () => {
+  const courseTitle = JSON.parse(localStorage.getItem("title"));
+  goBackBtn2.style.display = "none";
+  // console.log(courseTitle)
+
+  customAxios.post("/course/getCourseByCategory", courseTitle)
+  .then(res => {
+    if(res.data.message == 'ok'){
+      defaultCreateCourse(res.data.data)
+    } else {
+      console.log(res.data.message);
+    }
+  })
+  .catch(err => console.log(err));
 })

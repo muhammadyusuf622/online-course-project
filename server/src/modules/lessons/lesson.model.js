@@ -18,7 +18,6 @@ const LessonSchema = new mongoose.Schema({
 
   order_number: {
     type: mongoose.SchemaTypes.Number,
-    unique: true,
     required: true
   },
 

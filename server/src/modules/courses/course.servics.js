@@ -103,9 +103,10 @@ class CourseService {
       // category_id ni olib tashlash
       delete item.category_id;
       
-      // agar course_id image_url mavjud bo'lsa, uni yangilash
       if (item.course_id && item.course_id.image_url) {
-        item.course_id.image_url = `http://localhost:${PORT}${item.course_id.image_url.split("server")[1]}`;
+        if (!item.course_id.image_url.startsWith("http://") && !item.course_id.image_url.startsWith("https://")) {
+          item.course_id.image_url = `http://localhost:${PORT}${item.course_id.image_url.split("server")[1]}`;
+        }
       }
       
       return item;

@@ -62,7 +62,9 @@ class LessonService {
 
     const data = allData.map(item => {
       item = item.toObject();
-      item.video_url = `http://localhost:${PORT}${item.video_url.split("server")[1]}`;
+      if (item.video_url && !item.video_url.startsWith("https")) {
+        item.video_url = `http://localhost:${PORT}${item.video_url.split("server")[1]}`;
+      }
       return item;
     });
     
