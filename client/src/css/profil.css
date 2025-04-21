@@ -12,7 +12,7 @@ body {
 
 /* Header */
 header {
-  background-color: #0052cc;
+  background: linear-gradient(to right, #4f46e5, #2C73D2);;
   color: white;
   padding: 1rem 2rem;
   position: fixed;
@@ -83,7 +83,7 @@ nav ul li a:hover {
 }
 
 .edit-profile-btn {
-  background-color: #0052cc;
+  background: linear-gradient(to right, #4f46e5, #2C73D2);
   color: white;
   padding: 0.5rem 1rem;
   border-radius: 5px;
@@ -116,7 +116,7 @@ nav ul li a:hover {
 }
 
 .tab.active {
-  background-color: #0052cc;
+  background: linear-gradient(to right, #4f46e5, #2C73D2);
   color: white;
 }
 
@@ -177,6 +177,8 @@ footer a {
   text-decoration: none;
 }
 
+ /* Course img start */
+
 .fatherImg{
   width: 200px;
   height: 220px;
@@ -227,6 +229,7 @@ footer a {
   height: 100%;
   cursor: pointer;
 }
+ /* Course img end */
 
 .createCourses{
   display: flex;
@@ -289,7 +292,7 @@ footer a {
   width: 700px;
   height: 40px;
   border-radius: 10px;
-  background-color: #347eed;
+  background: linear-gradient(to right, #4f46e5, #2C73D2);
   color: white;
   font-size: 20px;
   border: none;
@@ -386,6 +389,12 @@ footer a {
   transition: transform 0.3s;
 }
 
+.course-card video{
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+
 .course-card-content {
   padding: 1.5rem;
 }
@@ -408,6 +417,264 @@ footer a {
   color: #666;
   font-size: 1rem;
 }
+
+/* lesson video start  */
+
+
+.fatherImg2{
+  display: flex;
+  justify-content: center;
+}
+
+.creayeImg2 {
+  width: 600px;
+  height: 200px;
+  border: 1px solid;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s;
+  overflow: hidden;
+  position: relative;
+}
+
+.creayeImg2:hover {
+  background-color: #f0f0f0;
+}
+
+.creayeImg2 video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.creayeImg2 input {
+  display: none;
+}
+
+.creayeImg2 i{
+  font-size: 45px;
+  cursor: pointer;
+  z-index: 5;
+  position: absolute;
+  top: 40%;
+  left: 46%;
+  transition: 0.3s ease;
+}
+
+.creayeImg2 label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+/* lesson video end  */
+
+.lessonTitleBox {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.lessonTitleBox label{
+  font-size: 32px;
+}
+
+.lessonTitleBox input{
+  width: 500px;
+  height: 40px;
+  font-size: 22px;
+  padding: 3px 10px;
+  border-radius: 10px;
+  border: 1px solid #0248b1;
+  color: #347eed;
+  font-weight:100;
+}
+.lessonTitleBox input::placeholder{
+  color: #347eed;
+}
+.lessonTitleBox input:focus{
+  outline: none;
+  box-shadow: none;
+}
+
+.lessonDescriptionBox{
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.lessonDescriptionBox label{
+  font-size: 25px;
+}
+
+.lessonDescriptionBox textarea{
+  width: 700px;
+  height: 70px;
+  font-size: 22px;
+  padding: 3px 10px;
+  border-radius: 10px;
+  border: 1px solid #0248b1;
+  color: #347eed;
+  font-weight:100;
+  resize: none;
+}
+
+.lessonDescriptionBox textarea::placeholder{
+  color: #347eed;
+}
+
+.lessonDescriptionBox textarea:focus{
+  outline: none;
+  box-shadow: none;
+}
+
+.lessonOrders{
+  margin-top: 50px;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.lessonOrders label{
+  display: block;
+  margin: 0px 50px;
+}
+
+.lessonOrders input {
+  display: block;
+  width: 180px;
+  height: 40px;
+  padding: 8px 12px;
+  border: 2px solid #347eed;
+  border-radius: 8px;
+  margin: 5px 50px;
+  font-size: 16px;
+  color: #333;
+  background-color: #f8f9fa;
+  transition: 0.3s ease;
+}
+
+.lessonOrders input::placeholder {
+  color: #999;
+  font-size: 14px;
+}
+
+.lessonOrders input:focus {
+  outline: none;
+  border-color: #2C73D2;
+  box-shadow: 0 0 5px rgba(76, 137, 255, 0.4);
+  background-color: #fff;
+}
+
+.lessonOrders input::-webkit-inner-spin-button,
+.lessonOrders input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+
+.lessonOrders select {
+  margin: 5px 50px;
+  width: 220px;
+  padding: 10px 14px;
+  border: 2px solid #4A90E2;
+  border-radius: 8px;
+  background-color: #f8f9fa;
+  color: #333;
+  font-size: 16px;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='7'%3E%3Cpath fill='%234A90E2' d='M6 7L0 0h12z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 12px 7px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.lessonOrders select:focus {
+  border-color: #2C73D2;
+  box-shadow: 0 0 5px rgba(76, 137, 255, 0.5);
+  outline: none;
+}
+
+.lessonOrders option {
+  background: #ffffff;
+  color: #333;
+}
+
+.lessonBtn{
+  margin-top: 50px;
+  margin-bottom: 50px;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+}
+
+.lessonBtn button {
+  width: 200px;
+  background: linear-gradient(to right, #4f46e5, #2C73D2);
+  color: #fff;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.lessonBtn button:hover {
+  background-color: #4338ca;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+.lessonBtn button:active {
+  background-color: #3730a3;
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+}
+
+
+.go-back_Btn {
+  display: none;
+  margin-top: 20px;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  background: linear-gradient(135deg, #4F46E5, #2C73D2);
+  color: #fff;
+  font-size: 16px;
+  font-weight: 500;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.go-back_Btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+  background: linear-gradient(135deg, #2C73D2, #4F46E5);
+}
+
+.go-back_Btn i {
+  font-size: 18px;
+}
+
 
 
 

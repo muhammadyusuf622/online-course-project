@@ -15,7 +15,7 @@
             <nav>
                 <ul>
                     <li><a href="./home.html">Home</a></li>
-                    <li><a href="#courses">Courses</a></li>
+                    <li><a href="./home.html">Courses</a></li>
                     <li><a href="#profile">About Us</a></li>
                     <li><a href="#contact">Communication</a></li>
                 </ul>
@@ -50,31 +50,23 @@
         </div>
 
         <div class="tabs">
-            <div class="tab active" data-tab="enrollments">Mening Kurslarim</div>
-            <div class="tab" data-tab="created-courses">Yaratgan Kurslarim</div>
-            <div class="tab" data-tab="likes">Create a course</div>
-            <div class="tab" data-tab="comments">Izohlar</div>
+            <div class="tab active" data-tab="created-courses">My Courses</div>
+            <div class="tab" data-tab="likes">Create Course</div>
+            <div class="tab" data-tab="comments">Create Lesson</div>
         </div>
 
-        <div class="tab-content active" id="enrollments">
-            <h2>Mening Kurslarim</h2>
+        <div class="tab-content " id="enrollments">
+            <h2>My Courses</h2>       
             <div class="course-list" id="enrollment-list">
             </div>
         </div>
 
-        <div class="tab-content" id="created-courses">
+        <div class="tab-content active" id="created-courses">
             <h2>Courses I Created</h2>
+            <button class="go-back_Btn">
+              <i class="fa-solid fa-arrow-left"></i> Go Back
+            </button>     
             <div class="course-grid">
-              
-              <div class="course-card">
-                <img src="https://thumbs.dreamstime.com/b/white-humanoid-robot-examines-programming-code-computer-screen-set-against-deep-blue-backdrop-highlighting-futuristic-342858644.jpg" alt="">
-                <div class="course-card-content">
-                  <h3>Hello</h3>
-                  <p>Lorem natus cum praesentium. Rerum distinctio illum, cupiditate praesentium aliquid debitis?</p>
-                  <p><b>Level:</b><span>Beginner</span></p>
-                  <p> <b>Language:</b><span>Inglish</span></p>
-                </div>
-              </div>
 
             </div>
         </div>
@@ -233,7 +225,7 @@
               </div>
 
               <div class="categoryBtn">
-                <button type="submit">Submit</button>
+                <button>Submit</button>
               </div>
 
             </div>
@@ -241,16 +233,57 @@
         </div>
 
         <div class="tab-content" id="comments">
-            <h2>Izohlar</h2>
+            <h2>Create Lesson</h2>
             <div class="comment-list" id="comment-list">
-              
+              <form id="lessonForm">
+              <p style="text-align: center;">Create Lesson Video</p>
+              <div class="fatherImg2">
+                <div class="creayeImg2" id="previewDiv2">
+                  <video></video>
+                  <label id="imgIconLabel2" for="media2"><i class="fa-solid fa-file-video"></i></label>
+                  <input type="file" id="media2" name="media" accept="video/*">
+                </div>
+              </div>
+
+
+              <div class="lessonBox">
+
+                <div class="lessonTitleBox">
+                  <label for="lessonTitle">Title</label>
+                  <input type="text" placeholder="Enter Lesson Title" required>
+                </div>
+
+                <div class="lessonDescriptionBox">
+                  <label for="lessonDescription">Description</label>
+                  <textarea name="lessonDescription"  placeholder="Enter Lesson Description" required></textarea>
+                </div>
+
+                <div class="lessonOrders">
+                  <div>
+                    <label for="orderNumber">Lesson Number</label>
+                    <input type="number" placeholder="Enter Lesson Number">
+                  </div>
+                  <div>
+                    <label for="">Choose your courses</label>
+                    <select id="selectCourse">
+                      <option value="">Choose your courses</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="lessonBtn">
+                  <button>Submit</button>
+                </div>
+              </div>
+              </form>
+                 
             </div>
         </div>
     </section>
 
     <footer>
-        <p>© 2025 E-Learning Platformasi. Barcha huquqlar himoyalangan.</p>
-        <p><a href="#privacy">Maxfiylik siyosati</a> | <a href="#terms">Foydalanish shartlari</a></p>
+        <p>© 2025 Tamerlane Teach Platform. All rights reserved.</p>
+        <p><a href="#privacy">Privacy Policy</a> | <a href="#terms">Terms of use</a></p>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>

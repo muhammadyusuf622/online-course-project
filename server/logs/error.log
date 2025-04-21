@@ -349,3 +349,12 @@
 {"level":"error","message":"GET /api/course/getByIdcategory, - allData.toObject is not a function","timestamp":"2025-04-19 23:44"}
 {"level":"error","message":"POST /api/course/createCourse, - Course validation failed: level: `Intermediate ` is not a valid enum value for path `level`.","timestamp":"2025-04-19 23:59"}
 {"level":"error","message":"POST /api/course/createCourse, - Course validation failed: level: `Intermediate ` is not a valid enum value for path `level`.","timestamp":"2025-04-19 23:59"}
+{"level":"error","message":"GET /home, - Page Not Found","timestamp":"2025-04-20 11:49"}
+{"level":"error","message":"POST /api/lesson/createLesson, - \"title\" length must be at least 4 characters long","timestamp":"2025-04-20 17:10"}
+{"level":"error","message":"POST /api/lesson/createLesson, - E11000 duplicate key error collection: tamerlaneTech.lessons index: order_number_1 dup key: { order_number: 1 }","timestamp":"2025-04-20 18:17"}
+{"level":"error","message":"POST /api/lesson/getLessonByTitle, - PORT is not defined","timestamp":"2025-04-20 19:52"}
+{"level":"error","message":"POST /api/lesson//getCourseByCategory, - Page Not Found","timestamp":"2025-04-20 22:10"}
+{"level":"error","message":"POST /api/course/getCourseByCategory, - Schema hasn't been registered for model \"courses\".\nUse mongoose.model(name, schema)","timestamp":"2025-04-20 22:30"}
+{"level":"error","message":"POST /api/course/getCourseByCategory, - Cannot read properties of undefined (reading 'split')","timestamp":"2025-04-20 22:38"}
+{"level":"error","message":"POST /api/course/getCourseByCategory, - Cannot read properties of null (reading 'id')","timestamp":"2025-04-20 23:18"}
+{"level":"error","message":"POST /api/course/getCourseByCategory, - Cannot read properties of null (reading 'id')","timestamp":"2025-04-20 23:19"}

@@ -1,5 +1,6 @@
 import customAxios from "./axios";
 
+
 customAxios.get("/user/getByIdUser")
 .then(res =>  {
     if(res.data.message == "goLogin"){
@@ -13,57 +14,6 @@ customAxios.get("/user/getByIdUser")
 })
 .catch(err => console.log(err));
 
-
-            // Profil ma'lumotlarini ko'rsatish
-
-      const enrollments = [
-          { course: { title: "Python dasturlash", language: "Ingliz" }, enrolled_at: "2025-04-10" },
-          { course: { title: "Web dasturlash", language: "O'zbek" }, enrolled_at: "2025-04-12" },
-      ];
-
-
-
-      const comments = [
-          { text: "Ajoyib kurs, ko'p narsa o'rgandim!", course: { title: "Python dasturlash" }, create_at: "2025-04-15" },
-          { text: "Tushunarli tushuntirilgan!", course: { title: "Web dasturlash" }, create_at: "2025-04-16" },
-      ];
-
-      // Ro'yxatdan o'tgan kurslarni ko'rsatish
-      const enrollmentList = document.getElementById("enrollment-list");
-      enrollments.forEach(enrollment => {
-          const item = document.createElement("div");
-          item.className = "course-item";
-          item.innerHTML = `
-              <div>
-                  <h3>${enrollment.course.title}</h3>
-                  <p>Til: ${enrollment.course.language}</p>
-                  <p>Ro'yxatdan o'tgan: ${enrollment.enrolled_at}</p>
-              </div>
-              <a href="#view-course" class="edit-profile-btn">Ko'rish</a>
-          `;
-          enrollmentList.appendChild(item);
-      });
-
-      // Yaratgan kurslarni ko'rsatish
-      const createdCourseList = document.getElementById("created-course-list");
-
-
-      const commentList = document.getElementById("comment-list");
-      comments.forEach(comment => {
-          const item = document.createElement("div");
-          item.className = "comment-item";
-          item.innerHTML = `
-              <div>
-                  <h3>${comment.course.title}</h3>
-                  <p>${comment.text}</p>
-                  <p>Sana: ${comment.create_at}</p>
-              </div>
-              <a href="#edit-comment" class="edit-profile-btn">Tahrirlash</a>
-          `;
-          commentList.appendChild(item);
-      });
-
-      // Tab funksionalligi
       const tabs = document.querySelectorAll(".tab");
       const tabContents = document.querySelectorAll(".tab-content");
 
@@ -78,32 +28,27 @@ customAxios.get("/user/getByIdUser")
       });
       
 
-const mediaInput = document.getElementById("media");
+
 const previewDiv = document.getElementById("previewDiv");
 const imgIconLabel = document.getElementById("imgIconLabel");
+const mediaInput = previewDiv.querySelector("#media");
 
 mediaInput.addEventListener("change", function() {
   const file = this.files[0];
 
   if (file) {
     const reader = new FileReader();
-
     reader.onload = function(e) {
-      // Rasmni oldin tozalab olamiz
       imgIconLabel.innerHTML = "";
       const removImg = previewDiv.querySelector("img");
       if (removImg) {
         previewDiv.removeChild(removImg);
       }
-
-      // Yangi rasm elementini yaratamiz
       const img = document.createElement("img");
       img.src = e.target.result;
 
-      // Rasmni divga qo'shamiz
       previewDiv.appendChild(img);
     };
-
     reader.readAsDataURL(file);
   }
 });
@@ -212,7 +157,13 @@ formCreateCourse.addEventListener('submit', function(e) {
 
 const courseGrid = document.querySelector(".course-grid");
 
+
 function defaultCreateCourse( data ){
+
+  document.querySelector(".go-back_Btn").style.display = "none"
+
+  courseGrid.innerHTML = ``;
+
     data.forEach(course => {
         const div = document.createElement("div");
         div.classList.add("course-card");
@@ -221,12 +172,15 @@ function defaultCreateCourse( data ){
         div.appendChild(img);
         const div2 = document.createElement("div");
         div2.classList.add("course-card-content");
-        const p1 = document.createElement("p")
-        const p2 = document.createElement("p")
-        const p3 = document.createElement("p")
+        const h3 = document.createElement("h3");
+        const p1 = document.createElement("p");
+        const p2 = document.createElement("p");
+        const p3 = document.createElement("p");
+        h3.textContent = course.title
         p1.textContent = course.description;
         p2.innerHTML = `<b>Level:</b> <span>${course.level}</span> `
         p3.innerHTML = `<b>Language:</b><span> ${course.language} </span>`
+        div2.appendChild(h3)
         div2.appendChild(p1)
         div2.appendChild(p2)
         div2.appendChild(p3)
@@ -234,7 +188,6 @@ function defaultCreateCourse( data ){
         courseGrid.appendChild(div)
   });
 }
-
 
 customAxios.get("/course/getByIdcategory")
 .then(res =>  {
@@ -247,3 +200,230 @@ customAxios.get("/course/getByIdcategory")
 })
 .catch(err => console.log(err));
 
+
+
+const previewDiv2 = document.getElementById("previewDiv2");
+const imgIconLabel2 = document.getElementById("imgIconLabel2");
+const mediaInput2 = previewDiv2.querySelector("#media2");
+
+mediaInput2.addEventListener("change", function() {
+  const file = this.files[0];
+
+  if (file) {
+    const reader = new FileReader();
+    reader.onload = function(e) {
+      // Iconni tozalab olamiz
+      imgIconLabel2.innerHTML = `<label id="imgIconLabel2" for="media2"><i class="fa-solid fa-file-video"></i></label>`;
+
+      // Avvalgi videoni olib tashlaymiz
+      const existingVideo = previewDiv2.querySelector("video");
+      if (existingVideo) {
+        previewDiv2.removeChild(existingVideo);
+      }
+
+      // Yangi video elementini yaratamiz
+      const video = document.createElement("video");
+      video.src = e.target.result;
+      video.controls = true;
+      video.autoplay = true;
+      video.muted = true;
+      video.style.maxWidth = "100%";
+      video.style.borderRadius = "10px";
+
+
+            // Metadata yuklanganda video uzunligini olish
+            video.addEventListener("loadedmetadata", function() {
+              const durationInSeconds = video.duration;
+              const minutes = Math.floor(durationInSeconds / 60);
+              const seconds = Math.floor(durationInSeconds % 60);
+              // console.log(`Video uzunligi: ${minutes} daqiqa ${seconds} soniya`);
+            });
+
+      // Videoni divga qo'shamiz
+      previewDiv2.appendChild(video);
+    };
+    reader.readAsDataURL(file);
+  }
+});
+
+const selectCourse = document.getElementById("selectCourse")
+
+
+function createTitle(data){
+
+  data.forEach(item => {
+    const optiono = document.createElement("option");
+    optiono.value = item.title;
+    optiono.textContent = item.title;
+    selectCourse.appendChild(optiono);
+  });
+}
+
+
+customAxios.get("/course/getCourseTitle")
+.then(res => {
+  if(res.data.message == "ok"){
+    createTitle(res.data.data);
+  } else {
+    console.log(res.data.message);
+  }
+})
+.catch(err => console.log(err));
+
+
+
+const lessonForm = document.getElementById("lessonForm");
+
+lessonForm.addEventListener('submit', function(e) {
+  e.preventDefault();
+
+  const videoFile = document.getElementById("media2").files[0];
+  const title = document.querySelector('input[placeholder="Enter Lesson Title"]').value.trim();
+  const description = document.querySelector('textarea[name="lessonDescription"]').value.trim();
+  const orderNumber = document.querySelector('input[placeholder="Enter Lesson Number"]').value.trim();
+  const selectedCourse = document.getElementById("selectCourse").value;
+
+  if (!videoFile) {
+    alert("Video not loaded! Please load the video.");
+    return;
+  }
+  if (!title || !description || !orderNumber || !selectedCourse) {
+    alert("Please fill in all fields.!");
+    return;
+  }
+
+  const video = document.createElement("video");
+  video.preload = "metadata";
+
+  video.onloadedmetadata = function() {
+    window.URL.revokeObjectURL(video.src);
+    const durationInSeconds = video.duration;
+    const minutes = Math.floor(durationInSeconds / 60);
+    const seconds = Math.floor(durationInSeconds % 60);
+    const time = `${minutes}:${seconds}`
+
+    const formData = new FormData();
+    formData.append("media", videoFile);
+    formData.append("title", title);
+    formData.append("description", description);
+    formData.append("orderNumber", orderNumber);
+    formData.append("courseTitle", selectedCourse);
+    formData.append("duration", time);
+
+    customAxios.post("/lesson/createLesson", formData)
+      .then(res => {
+        if(res.data.message == 'The lesson number already exists'){
+          return alert("The lesson number already exists")
+        } else {
+          lessonForm.reset();
+        }
+      })
+      .catch(err => console.log(err));
+  };
+
+  video.src = URL.createObjectURL(videoFile);
+});
+
+
+
+async function getLesson (data) {
+
+  document.querySelector(".go-back_Btn").style.display = "block"
+
+  courseGrid.innerHTML = ``;
+  data.forEach(lesson => {
+    const div = document.createElement("div");
+    div.classList.add("course-card");
+
+    const video = document.createElement("video");
+    video.src = lesson.video_url;
+    video.muted = true; 
+    video.controls = false;
+    video.style.width = "100%";
+    video.style.borderRadius = "10px";
+
+    video.addEventListener("mouseenter", () => {
+      video.muted = false;
+      video.play();
+    });
+
+    video.addEventListener("mouseleave", () => {
+      video.muted = true;
+      video.pause();
+      video.currentTime = 0;
+    });
+
+    video.addEventListener("click", () => {
+      if (video.requestFullscreen) {
+        video.requestFullscreen();
+      } else if (video.webkitRequestFullscreen) {
+        video.webkitRequestFullscreen();
+      } else if (video.msRequestFullscreen) {
+        video.msRequestFullscreen();
+      }
+    });
+
+    div.appendChild(video);
+
+    const div2 = document.createElement("div");
+    div2.classList.add("course-card-content");
+
+    const h3 = document.createElement("h3");
+    h3.textContent = lesson.title;
+
+    const p1 = document.createElement("p");
+    p1.textContent = lesson.description;
+
+    const p2 = document.createElement("p");
+    p2.innerHTML = `<b>Lesson Number:</b> <span>${lesson.order_number}</span> `;
+
+    const p3 = document.createElement("p");
+    p3.innerHTML = `<b>Duration:</b> <span>${lesson.duration}</span>`;
+
+    div2.appendChild(h3);
+    div2.appendChild(p1);
+    div2.appendChild(p2);
+    div2.appendChild(p3);
+
+    div.appendChild(div2);
+    courseGrid.appendChild(div);
+  });
+}
+
+
+
+courseGrid.addEventListener("click", function(e) {
+  const courseCard = e.target.closest(".course-card");
+  if (courseCard) {
+    const h3 = courseCard.querySelector("h3");
+    const courseTitle = h3.textContent;
+    
+
+    customAxios.post("/lesson/getLessonByTitle", {title: courseTitle})
+    .then(res => {
+      if(res.data.message == 'ok'){
+        getLesson(res.data.data)
+      } else {
+        console.log(res.data.message);
+      }
+    })
+    .catch(err => console.log(err));
+  }
+});
+
+
+const goBackBtn = document.querySelector(".go-back_Btn");
+
+goBackBtn.addEventListener('click', () => {
+
+  customAxios.get("/course/getByIdcategory")
+  .then(res =>  {
+
+    if(res.data.message == 'ok'){
+        defaultCreateCourse(res.data.data)
+    } else {
+        console.log(res.data.message);
+    }
+  })
+  .catch(err => console.log(err));
+})

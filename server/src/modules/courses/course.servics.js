@@ -63,6 +63,60 @@ class CourseService {
       data: data
     }
   }
+
+  getCourseTitleService = async (userId) => {
+
+    const data = await this.#_courseModel.find({ user_id: userId }, { title: 1, _id: 0 });
+
+    if(!data){
+      return {message: "Data Not Found"};
+    }
+
+    return{
+      message: "ok",
+      data: data
+    }
+  }
+
+
+  getCourseByCategory = async (title) => {
+
+    if(!title.trim()){
+      return { message: "Title Not Found" }
+    }
+
+    const category = await this.categoryModel.findOne({ name: title })
+
+    const allData = await this.CourseCategoriesModel.find( {category_id: category?.id }).populate("course_id");
+
+    if (!allData || allData.length === 0) {
+      return {
+        message: "User courses not found"
+      };
+    }
+
+
+    const data = allData
+    .filter(item => item.course_id !== null && item.course_id._id) // faqat populate qilingan course_id bo'lganlarni olish
+    .map(item => {
+      item = item.toObject();
+      // category_id ni olib tashlash
+      delete item.category_id;
+      
+      // agar course_id image_url mavjud bo'lsa, uni yangilash
+      if (item.course_id && item.course_id.image_url) {
+        item.course_id.image_url = `http://localhost:${PORT}${item.course_id.image_url.split("server")[1]}`;
+      }
+      
+      return item;
+    });
+  
+    return {
+      message: "ok",
+      data: data
+    }
+  }
+
 }
 
 export default new CourseService();

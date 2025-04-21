@@ -90,8 +90,6 @@ class UserController {
     try {
       const  userId  = req.user?.id;
 
-      console.log(req.user)
-
       const data = await this.#_service.getByIdUser(userId);
 
       res.send(data);

@@ -4,17 +4,20 @@ const CourseSchema = new mongoose.Schema({
 
   title: {
     type: mongoose.SchemaTypes.String,
-    required: true
+    required: true,
+    trim: true
   },
 
   description: {
     type: mongoose.SchemaTypes.String,
-    required: true
+    required: true,
+    trim: true
   },
 
   language: {
     type: mongoose.SchemaTypes.String,
-    required: true
+    required: true,
+    trim: true
   },
 
   level: {

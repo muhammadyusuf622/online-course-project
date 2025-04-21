@@ -11,7 +11,7 @@ body {
 
 /* Header */
 header {
-  background-color: #0052cc;
+  background: linear-gradient(to right, #4f46e5, #2C73D2);;
   color: white;
   padding: 1rem 2rem;
   position: fixed;
@@ -157,6 +157,7 @@ nav ul li a:hover {
   border-radius: 8px;
   overflow: hidden;
   transition: transform 0.3s;
+  max-width: 300px;
 }
 
 .course-card:hover {
@@ -205,6 +206,37 @@ footer a {
   cursor: pointer;
   transition: 0.3s ease;
 }
+
+.go-back_Btn {
+  display: none;
+  margin-top: 20px;
+  margin-bottom: 50px;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  background: linear-gradient(135deg, #4F46E5, #2C73D2);
+  color: #fff;
+  font-size: 16px;
+  font-weight: 500;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.go-back_Btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+  background: linear-gradient(135deg, #2C73D2, #4F46E5);
+}
+
+.go-back_Btn i {
+  font-size: 18px;
+}
+
+
 
 .profil_img img:hover{
   transform: scale(1.1);

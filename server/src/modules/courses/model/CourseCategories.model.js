@@ -5,7 +5,7 @@ const CourseCategoriesSchema = new mongoose.Schema({
 
   course_id: {
     type: mongoose.SchemaTypes.ObjectId,
-    ref: "users",
+    ref: "Course",
     require: true
   },
 
