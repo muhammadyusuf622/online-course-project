@@ -16,3 +16,5 @@
   command = "npm run prod"  # Server uchun build buyruq
   publish = "server/package.json"  # Server build fayllari joylashgan joy
 
+[functions]
+  directory = "netlify/functions"  # Netlify funksiyalar joylashgan papka
