@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me - Tamerlane Teach</title>
+    <style>* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Poppins, sans-serif;
+}
+
+body {
+  color: #fff;
+  background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  display: flex;
+  overflow: hidden;
+}
+
+.background-image {
+  opacity: .3;
+  z-index: -1;
+  background: url("https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=2070&auto=format&fit=crop") center / cover no-repeat;
+  width: 100%;
+  height: 100%;
+  animation: 20s ease-in-out infinite subtleMove;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+@keyframes subtleMove {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.05);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+.navbar {
+  z-index: 10;
+  background: #1e3a8a;
+  justify-content: center;
+  gap: 30px;
+  width: 100%;
+  padding: 15px 0;
+  display: flex;
+  position: fixed;
+  top: 0;
+}
+
+.navbar a {
+  color: #fff;
+  font-size: 18px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color .3s;
+}
+
+.navbar a:hover {
+  color: #93c5fd;
+}
+
+.content {
+  text-align: center;
+  backdrop-filter: blur(10px);
+  background: #ffffff1a;
+  border-radius: 15px;
+  max-width: 600px;
+  padding: 20px;
+  box-shadow: 0 4px 15px #0003;
+}
+
+.content h1 {
+  margin-bottom: 20px;
+  font-size: 36px;
+  font-weight: 600;
+}
+
+.content p {
+  font-size: 18px;
+  line-height: 1.6;
+}
+</style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="/pages/home.html">Home</a>
+        <a href="/pages/home.html">Courses</a>
+        <a href="#">About Us</a>
+        <a href="#">Communication</a>
+    </div>
+
+    <div class="background-image"></div>
+
+    <div class="content">
+        <h1>About Me</h1>
+        <p>I’m the creator of <strong>Tamerlane Teach</strong>, a passionate educator dedicated to sharing knowledge in programming, business, and trading. My goal is to inspire and empower learners worldwide with accessible, high-quality education. Let’s grow together!</p>
+    </div>
+
+    <script>// JavaScript faqat fon rasmi animatsiyasi uchun ishlatildi
+// Agar qo'shimcha funksiyalar kerak bo'lsa, qo'shish mumkin
+
+</script>
+<script src="/AboutUs.594ab6bb.js"></script></body>
+</html>

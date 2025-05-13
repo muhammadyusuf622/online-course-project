@@ -14,7 +14,7 @@ import customAxios from "./axios";
       // Add scroll effect to header
       window.addEventListener('scroll', () => {
           const header = document.querySelector('header');
-          if (window.scrollY > 50) {
+          if (window.scrollY > 70) {
               header.style.backgroundColor = '#003d99';
           } else {
               header.style.backgroundColor = '#0052cc';

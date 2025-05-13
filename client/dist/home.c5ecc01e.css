@@ -64,9 +64,9 @@ nav ul li a:hover {
 }
 
 .hero-slider {
-  width: 300%;
+  width: 800%;
   height: 100%;
-  animation: 20s linear infinite slide;
+  animation: 35s linear infinite slide;
   display: flex;
   position: absolute;
   top: 0;
@@ -85,11 +85,31 @@ nav ul li a:hover {
 }
 
 .hero-slide:nth-child(2) {
-  background-image: url("https://images.unsplash.com/photo-1600585154340-be6161a56a0c");
+  background-image: url("https://www.shutterstock.com/image-photo/group-multinational-business-people-digital-600nw-2430266899.jpg");
 }
 
 .hero-slide:nth-child(3) {
   background-image: url("https://cloudinary.hbs.edu/hbsit/image/upload/s--O0PXWnT3--/f_auto,c_fill,h_375,w_750,/v20200101/BDD0688FF02068E5C427B0954F8A2297.jpg");
+}
+
+.hero-slide:nth-child(8) {
+  background-image: url("https://img.freepik.com/premium-photo/website-header-three-business-colleagues-discussing-projects-modern-office-interior_386167-2269.jpg");
+}
+
+.hero-slide:nth-child(5) {
+  background-image: url("https://static.vecteezy.com/system/resources/thumbnails/053/698/265/small/circular-frame-with-healthy-food-empty-inside-picture-photo.jpg");
+}
+
+.hero-slide:nth-child(6) {
+  background-image: url("https://t4.ftcdn.net/jpg/09/88/41/71/360_F_988417163_mpspe1XhgQ37ihBNqBQpYExH1I9cypad.jpg");
+}
+
+.hero-slide:nth-child(7) {
+  background-image: url("https://media.licdn.com/dms/image/v2/C4E12AQHzpZee4T7x2g/article-cover_image-shrink_600_2000/article-cover_image-shrink_600_2000/0/1639335884714?e=2147483647&v=beta&t=X4Fkcwhm3hFbJo1USqBAUwWTHDJeKW8jn6XSQLOZx4g");
+}
+
+.hero-slide:nth-child(4) {
+  background-image: url("https://www.shutterstock.com/image-photo/professional-mechanical-engineer-team-working-600nw-1721715541.jpg");
 }
 
 @keyframes slide {

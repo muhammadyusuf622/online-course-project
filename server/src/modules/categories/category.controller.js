@@ -10,7 +10,6 @@ class CategoryController {
 
   getAllCategory = async (req, res, next) => {
     try {
-
       const data = await this.#_service.getAllcategory(req.user);
 
       res.send(data)
@@ -18,7 +17,6 @@ class CategoryController {
       next(error)
     }
   }
-
 }
 
 export default new CategoryController();
