@@ -1,20 +1,12 @@
 [build]
-  base = "."  # Loyihangizning asosiy papkasi
-  publish = "client/package.json"  # client papkasida yaratilgan build fayllari
-  command = "npm run build"  # Build buyruq
+  command = ""  # build yo'q, oddiy HTML bo'lsa
+  publish = "client"
+
+[functions]
+  directory = "netlify/functions"
 
 [[plugins]]
   package = "@netlify/plugin-functions-install-core"
 
-[[context.production]]
-  [context.production.environment]
-    NODE_ENV = "production"
-
-# Server uchun alohida build sozlamalari
-[[build.publish]]
-  base = "server"  # server papkasi
-  command = "npm run prod"  # Server uchun build buyruq
-  publish = "server/package.json"  # Server build fayllari joylashgan joy
-
-[functions]
-  directory = "netlify/functions"  # Netlify funksiyalar joylashgan papka
+[context.production.environment]
+  NODE_ENV = "production"
