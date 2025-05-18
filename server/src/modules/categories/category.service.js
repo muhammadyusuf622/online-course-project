@@ -14,6 +14,10 @@ class CategoryService {
 
     const allCategory = await this.#_categoryModel.find();
     const userData = await userModel.findById(user.id)
+
+    if (!userData) {
+      return { message: "User not found"};
+    }
     const UserInfo = userData.toObject();
     UserInfo.profil_image = `http://localhost:${PORT}${UserInfo.profil_image.split("server")[1]}`;
 

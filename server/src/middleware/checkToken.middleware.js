@@ -22,7 +22,7 @@ export const checkTokenMiddleware = (req, res, next) => {
         const decoded = jwt.verify(refreshToken, dotenvConfig.REFRESHTOKEN_SECRET_KEY);
 
         const newAccessToken = jwt.sign(
-          { id: decoded.Id, username: decoded.username, role: decoded.role },
+          { id: decoded.id, username: decoded.username, role: decoded.role },
           dotenvConfig.ACCESSTOKEN_SECRET_KEY,
           { expiresIn: dotenvConfig.ACCESSTOKEN_SECRET_TIME }
         );

@@ -12,6 +12,9 @@ class CategoryController {
     try {
       const data = await this.#_service.getAllcategory(req.user);
 
+      if (!data) {
+      return res.status(404).json({ message: "Categories not found" });
+    }
       res.send(data)
     } catch (error) {
       next(error)
