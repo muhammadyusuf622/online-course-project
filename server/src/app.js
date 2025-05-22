@@ -27,17 +27,13 @@ app.use(cors({
   credentials: true
 }));
 
-app.get("/swg", (req, res) => {
-  res.send("Salom ishladi hammasi yaxshi")
-});
-
-app.get("/swgg", (req, res) => {
-  res.send("Salom ishladi hammasi yaxshi")
-});
 
 app.use('/api',router);
 
 
+app.get("/aaa", (req, res) => {
+  res.send("Salwom ishladiww hammasi wyaxshwi")
+});
 
 app.all("/*splat", (req, res, next) => {
   throw new ErrorHandler(404, "Page Not Found")

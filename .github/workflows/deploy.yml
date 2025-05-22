@@ -24,10 +24,10 @@ jobs:
           cd ${{ secrets.DEPLOY_PATH_SERVER }}
           git pull origin main
           npm i
-          pm2 restart OnlineCourseServer || pm2 start main.js --name test
+          pm2 restart OnlineCourseServer || pm2 start main.js --name OnlineCourseServer
 
           cd ${{ secrets.DEPLOY_PATH_CLIENT_CLIENT }}
           git pull origin main
           npm i
-          pm2 restart clientOnlineCourse || pm2 start main.js --name test
+          pm2 restart clientOnlineCourse || pm2 start "npm run start"
         EOF
