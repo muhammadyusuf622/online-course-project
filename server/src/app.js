@@ -7,6 +7,7 @@ import cookieParser from "cookie-parser"
 import router from "./modules/index.js";
 import ErrorHandler from "./utils/ErrorHandler.utils.js";
 import path from "path"
+import dotenvConfig from "./config/dotenv.config.js";
 
 const app = express()
 
@@ -23,13 +24,16 @@ app.use('/uploads', express.static(path.join(process.cwd(), 'uploads')));
 
 
 app.use(cors({
-  origin: "http://localhost:4000",
+  origin: `${dotenvConfig.FRONT_DOMEN}4000`,
   credentials: true
 }));
 
 app.get("/", (req, res) => {
   res.send("Hello Tamerlane Teach")
 });
+
+app.get('/favicon.ico', (req, res) => res.status(204).end());
+
 
 app.use('/api',router);
 
