@@ -21,7 +21,9 @@ class CategoryService {
       return { message: "User not found"};
     }
     const UserInfo = userData.toObject();
-    UserInfo.profil_image = `${this.DOMEN}${PORT}${UserInfo.profil_image.split("server")[1]}`;
+    if(!UserInfo.profil_image.startsWith('https://')){
+      UserInfo.profil_image = `${this.DOMEN}${PORT}${UserInfo.profil_image.split("server")[1]}`;
+    }
 
     return {
       message: "ok",

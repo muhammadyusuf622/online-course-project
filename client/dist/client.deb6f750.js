@@ -682,7 +682,7 @@ registerForm.addEventListener('submit', (e)=>{
         if ((input.name == "password" || input.name == "confirm_password") && input.value.length < 4) return alert("Password must be more than four characters");
         user[input.name] = input.value;
     });
-    if (user.password !== user.confirm_password) return alert("The passwords are not the same.");
+    if (user.password !== user.confirm_password) return alert(`The passwords are not the same.`);
     (0, _axiosJsDefault.default).post("/user/register", user).then((response)=>{
         if (response.data.message == "ok") return window.location.href = "/pages/home.html";
     }).catch((error)=>{
@@ -694,7 +694,7 @@ registerForm.addEventListener('submit', (e)=>{
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 const customAxios = axios.create({
-    baseURL: "http://143.198.199.219:3550/api",
+    baseURL: "http://localhost:3000/api",
     timeout: 10000,
     withCredentials: true
 });

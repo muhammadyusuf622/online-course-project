@@ -1,6 +1,6 @@
 import PORT from "../../config/app.config.js";
 import dotenvConfig from "../../config/dotenv.config.js";
-import sendMail from "../../utils/mail.utils.js";
+// import sendMail from "../../utils/mail.utils.js";
 import userModel from "./user.model.js";
 import { compare, hash } from "bcrypt";
 
@@ -36,29 +36,29 @@ class UserService {
       password: hashPassword,
     });
 
-    await sendMail({
-      to: email,
-      subject: "Welcome to Tamerlane Teach 🎉",
-      text: `Welcome to Tamerlane Teach!
+    // await sendMail({
+    //   to: email,
+    //   subject: "Welcome to Tamerlane Teach 🎉",
+    //   text: `Welcome to Tamerlane Teach!
     
-    We’re thrilled to have you join our growing learning community.
+    // We’re thrilled to have you join our growing learning community.
     
-    Explore new courses, share your knowledge, and become part of a global network of learners and educators.
+    // Explore new courses, share your knowledge, and become part of a global network of learners and educators.
     
-    Let's start your journey together!
+    // Let's start your journey together!
     
-    Best regards,  
-    Tamerlane Teach Team`,
-      html: `
-        <div style="font-family: Arial, sans-serif; padding: 20px; color: #333;">
-          <h2 style="color: #2e7d32;">Welcome to <span style="color: #1976d2;">Tamerlane Teach</span> 🎉</h2>
-          <p>We’re <strong>thrilled</strong> to have you join our growing learning community.</p>
-          <p>🚀 Explore new courses, 📚 share your knowledge, and 🌍 connect with learners and educators worldwide.</p>
-          <p style="margin-top: 20px;">Let’s start your journey together!</p>
-          <p style="color: #555; margin-top: 30px;">Best regards,<br/><strong>Tamerlane Teach Team</strong></p>
-        </div>
-      `,
-    });
+    // Best regards,  
+    // Tamerlane Teach Team`,
+    //   html: `
+    //     <div style="font-family: Arial, sans-serif; padding: 20px; color: #333;">
+    //       <h2 style="color: #2e7d32;">Welcome to <span style="color: #1976d2;">Tamerlane Teach</span> 🎉</h2>
+    //       <p>We’re <strong>thrilled</strong> to have you join our growing learning community.</p>
+    //       <p>🚀 Explore new courses, 📚 share your knowledge, and 🌍 connect with learners and educators worldwide.</p>
+    //       <p style="margin-top: 20px;">Let’s start your journey together!</p>
+    //       <p style="color: #555; margin-top: 30px;">Best regards,<br/><strong>Tamerlane Teach Team</strong></p>
+    //     </div>
+    //   `,
+    // });
     
 
     return {
@@ -96,13 +96,13 @@ class UserService {
 
     const password = Date.now().toString().slice(7);
 
-    await sendMail({
-      to: email,
-      subject: "Tamerlane Teach",
-      text: `Enter This Code Into The Tamerlane Teach Platform`,
-      html: `<h3>${password} </h3>`
+    // await sendMail({
+    //   to: email,
+    //   subject: "Tamerlane Teach",
+    //   text: `Enter This Code Into The Tamerlane Teach Platform`,
+    //   html: `<h3>${password} </h3>`
 
-    });
+    // });
 
     return {
       message: "ok",

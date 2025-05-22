@@ -763,7 +763,7 @@ if (secretForm) secretForm.addEventListener("submit", (e)=>{
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 const customAxios = axios.create({
-    baseURL: "http://143.198.199.219:3550/api",
+    baseURL: "http://localhost:3000/api",
     timeout: 10000,
     withCredentials: true
 });

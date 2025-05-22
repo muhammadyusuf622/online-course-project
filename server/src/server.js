@@ -9,7 +9,7 @@ setInterval(() => {
   checkDisk()
 }, 10 * 60 * 1000);
 
-app.listen(PORT, '0.0.0.0', (err) => {
+app.listen(PORT,(err) => {
   if (err) console.log(err);
   console.log(`http://localhost:${PORT}`);
 });
