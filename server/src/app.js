@@ -27,6 +27,9 @@ app.use(cors({
   credentials: true
 }));
 
+app.get("/", (req, res) => {
+  res.send("Hello Tamerlane Teach")
+});
 
 app.use('/api',router);
 
