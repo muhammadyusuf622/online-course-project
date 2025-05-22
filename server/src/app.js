@@ -31,6 +31,10 @@ app.get("/swg", (req, res) => {
   res.send("Salom ishladi hammasi yaxshi")
 });
 
+app.get("/swgg", (req, res) => {
+  res.send("Salom ishladi hammasi yaxshi")
+});
+
 app.use('/api',router);
 
 
