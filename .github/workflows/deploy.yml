@@ -21,13 +21,15 @@ jobs:
     - name: Pull latest code & restart app on server
       run: |
         ssh -o StrictHostKeyChecking=no ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} << EOF
-          cd ${{ secrets.DEPLOY_PATH_SERVER }}
+          
+          cd ${{ secrets.DEPLOY_PATH_ONLINECOURSE }}
           git pull origin main
+      
+          cd ${{ secrets.DEPLOY_PATH_SERVER }}
           npm i
           pm2 restart OnlineCourseServer || pm2 start main.js --name OnlineCourseServer
 
           cd ${{ secrets.DEPLOY_PATH_CLIENT_CLIENT }}
-          git pull origin main
           npm i
           pm2 restart clientOnlineCourse || pm2 start "npm run start"
         EOF
