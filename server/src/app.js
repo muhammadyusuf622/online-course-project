@@ -27,6 +27,10 @@ app.use(cors({
   credentials: true
 }));
 
+app.get("/swg", (req, res) => {
+  res.send("Salom ishladi hammasi yaxshi")
+});
+
 app.use('/api',router);
 
 

@@ -27,7 +27,7 @@ registerForm.addEventListener('submit', (e) => {
   });
 
   if(user.password !== user.confirm_password){
-    return alert("The passwords are not the same.");
+    return alert(`The passwords are not the same.`);
   }
 
   customAxios.post("/user/register", user)
