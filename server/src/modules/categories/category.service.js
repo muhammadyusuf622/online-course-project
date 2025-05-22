@@ -8,7 +8,7 @@ class CategoryService {
   #_categoryModel
   constructor(){
     this.#_categoryModel = categoryModel
-    this.#_seedCasegory();
+    this.seedCasegory();
     this.DOMEN = dotenvConfig.DOMEN
   }
 
@@ -33,7 +33,7 @@ class CategoryService {
   }
 
 
-  #_seedCasegory = async () => {
+   seedCasegory = async () => {
     const defaultCategory = [
       {name: "Programming", imageUrl: "https://thumbs.dreamstime.com/b/white-humanoid-robot-examines-programming-code-computer-screen-set-against-deep-blue-backdrop-highlighting-futuristic-342858644.jpg"},
       {name: "Business", imageUrl: "https://cloudinary.hbs.edu/hbsit/image/upload/s--O0PXWnT3--/f_auto,c_fill,h_375,w_750,/v20200101/BDD0688FF02068E5C427B0954F8A2297.jpg"},

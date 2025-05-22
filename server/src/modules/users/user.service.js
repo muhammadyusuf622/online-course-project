@@ -153,7 +153,9 @@ class UserService {
     }
 
     data.createdAt = data.createdAt.toISOString().split("T")[0];
-    data.profil_image = `${this.DOMEN}${PORT}${data.profil_image.split("server")[1]}`;
+    if(!data.profil_image.startsWith("https://")){
+      data.profil_image = `${this.DOMEN}${PORT}${data.profil_image.split("server")[1]}`;
+    }
 
     return {
       message: "ok",
