@@ -1,4 +1,5 @@
 import PORT from "../../config/app.config.js";
+import dotenvConfig from "../../config/dotenv.config.js";
 import userModel from "../users/user.model.js";
 import categoryModel from "./category.model.js";
 
@@ -8,6 +9,7 @@ class CategoryService {
   constructor(){
     this.#_categoryModel = categoryModel
     this.#_seedCasegory();
+    this.DOMEN = dotenvConfig.DOMEN
   }
 
   getAllcategory = async (user) => {
@@ -19,7 +21,7 @@ class CategoryService {
       return { message: "User not found"};
     }
     const UserInfo = userData.toObject();
-    UserInfo.profil_image = `http://localhost:${PORT}${UserInfo.profil_image.split("server")[1]}`;
+    UserInfo.profil_image = `${this.DOMEN}${PORT}${UserInfo.profil_image.split("server")[1]}`;
 
     return {
       message: "ok",

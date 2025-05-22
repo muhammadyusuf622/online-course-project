@@ -1,4 +1,5 @@
 import PORT from "../../config/app.config.js";
+import dotenvConfig from "../../config/dotenv.config.js";
 import courseModel from "../courses/model/course.model.js";
 import lessonModel from "./lesson.model.js"
 
@@ -7,6 +8,7 @@ class LessonService {
   constructor (){
     this.#_lessonModel = lessonModel
     this.courseModel = courseModel
+    this.DOMEN = dotenvConfig.DOMEN
   }
 
 
@@ -63,7 +65,7 @@ class LessonService {
     const data = allData.map(item => {
       item = item.toObject();
       if (item.video_url && !item.video_url.startsWith("https")) {
-        item.video_url = `http://localhost:${PORT}${item.video_url.split("server")[1]}`;
+        item.video_url = `${this.DOMEN}${PORT}${item.video_url.split("server")[1]}`;
       }
       return item;
     });

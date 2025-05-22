@@ -1,4 +1,5 @@
 import PORT from "../../config/app.config.js";
+import dotenvConfig from "../../config/dotenv.config.js";
 import sendMail from "../../utils/mail.utils.js";
 import userModel from "./user.model.js";
 import { compare, hash } from "bcrypt";
@@ -8,6 +9,7 @@ import { compare, hash } from "bcrypt";
 class UserService {
   constructor(){
     this.userModel = userModel;
+    this.DOMEN = dotenvConfig.DOMEN
   }
 
   createUser = async (username, email ,password, confirm_password) => {
@@ -128,7 +130,7 @@ class UserService {
       return { message: "User not found" };
     }
 
-    data.profil_image = `http://localhost:${PORT}${data.profil_image.split("server")[1]}`;
+    data.profil_image = `${this.DOMEN}${PORT}${data.profil_image.split("server")[1]}`;
 
     return{
       message: "ok",
@@ -151,7 +153,7 @@ class UserService {
     }
 
     data.createdAt = data.createdAt.toISOString().split("T")[0];
-    data.profil_image = `http://localhost:${PORT}${data.profil_image.split("server")[1]}`;
+    data.profil_image = `${this.DOMEN}${PORT}${data.profil_image.split("server")[1]}`;
 
     return {
       message: "ok",

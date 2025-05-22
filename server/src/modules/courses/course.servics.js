@@ -1,4 +1,5 @@
 import PORT from "../../config/app.config.js"
+import dotenvConfig from "../../config/dotenv.config.js"
 import categoryModel from "../categories/category.model.js"
 import courseModel from "./model/course.model.js"
 import CourseCategoriesModel from "./model/CourseCategories.model.js"
@@ -10,6 +11,7 @@ class CourseService {
     this.#_courseModel = courseModel
     this.CourseCategoriesModel = CourseCategoriesModel
     this.categoryModel = categoryModel;
+    this.DOMEN = dotenvConfig.DOMEN
   }
 
   createCourseService = async (userId, title, description, language, select_Category, course_Level, imageUrl) => {
@@ -54,7 +56,7 @@ class CourseService {
 
     const data = allData.map(item => {
       item = item.toObject();
-      item.image_url = `http://localhost:${PORT}${item.image_url.split("server")[1]}`;
+      item.image_url = `${this.DOMEN}${PORT}${item.image_url.split("server")[1]}`;
       return item;
     });
 
@@ -105,7 +107,7 @@ class CourseService {
       
       if (item.course_id && item.course_id.image_url) {
         if (!item.course_id.image_url.startsWith("http://") && !item.course_id.image_url.startsWith("https://")) {
-          item.course_id.image_url = `http://localhost:${PORT}${item.course_id.image_url.split("server")[1]}`;
+          item.course_id.image_url = `${this.DOMEN}${PORT}${item.course_id.image_url.split("server")[1]}`;
         }
       }
       
