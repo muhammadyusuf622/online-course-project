@@ -31,14 +31,6 @@ app.use(cors({
 app.use('/api',router);
 
 
-app.get("/aaa", (req, res) => {
-  res.send("Salwom ishladiww hammasi wyaxshwi")
-});
-
-app.get("/ggg", (req, res) => {
-  res.send("Salwom ishladiww hammasi wyaxshwi")
-});
-
 app.all("/*splat", (req, res, next) => {
   throw new ErrorHandler(404, "Page Not Found")
 });
