@@ -29,7 +29,7 @@ app.use(cors({
 }));
 
 app.get("/", (req, res) => {
-  res.send("Hello Tamerlane Teach")
+  res.send("Hello Tamerlane Teach testttttt")
 });
 
 app.get('/favicon.ico', (req, res) => res.status(204).end());
